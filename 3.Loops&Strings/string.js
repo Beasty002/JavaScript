@@ -30,3 +30,13 @@ console.log(output);
 console.log(`the update price of ${obj.item} is ${2 * obj.price} `)
 console.log(`the sum of 1 , 2 and 3 is ${1 + 2 + 3}`)
 // we can also perform different operations using template literals
+
+
+
+// --------------------escape character
+// this is a line break
+console.log('the \n beasty')
+// her '\n' is the escape character that prints the words after it on the next line
+console.log('the \t beasty')
+// her '\t' is the escape character that prints the words after some space
+
