@@ -46,3 +46,16 @@ console.log('d = ', d);
 
 // -------------------------------------------------- Assignment operators
 // '=' is an assignment operator
+
+let a1 = 40;
+a1 += 20;
+// this means a1 = a1 + 20
+console.log('Value of a1 is', a1);
+let b1 = 30;
+b1 -= 20;
+// this means b1 = b1 - 20
+console.log('Value of b1 is', b1);
+// in similar way we can do for divide and multiply and modulo (%) or exponianation (power)
+let cv = 2;
+cv = 2 ** 3;
+console.log(cv)
