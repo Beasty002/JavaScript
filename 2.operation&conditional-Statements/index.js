@@ -56,6 +56,32 @@ b1 -= 20;
 // this means b1 = b1 - 20
 console.log('Value of b1 is', b1);
 // in similar way we can do for divide and multiply and modulo (%) or exponianation (power)
-let cv = 2;
-cv = 2 ** 3;
-console.log(cv)
+
+
+// ---------------------------Comparison operators
+// it us used to compare two values
+
+// '==' : equal to
+// '===' : equal to and data type
+// '!=' : not equal to
+// '!==' : not equal to and type
+// > : greater than
+// >= greater or equal to 
+// < less than
+// <= less than or equal to
+
+let a2 = 4;
+let b2 = 4;
+let c2 = 8;
+let d2 = '4'; //string
+console.log('a2==d2', a2 == b2);
+console.log('a2===d2', a2 === d2);
+console.log('a2!=d2', a2 != d2);
+console.log('a2!==d2', a2 != b2);
+console.log('a2<=b2', a2 <= b2);
+console.log('a2<=d2', a2 <= d2);
+
+
+
+//---------------------------------- Logical Operators
+
