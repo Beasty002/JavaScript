@@ -76,7 +76,7 @@ switch (name) {
 
 // -------------------code to give student a grade
 let grade = prompt("enter your grade")
-if (grade > 100 || grade < 0) {
+if (grade > 100 || grade10 < 0) {
     alert("enter a valid grade");
 }
 else if (grade >= 90 && grade <= 100) {
