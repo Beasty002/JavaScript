@@ -85,3 +85,20 @@ console.log('a2<=d2', a2 <= d2);
 
 //---------------------------------- Logical Operators
 
+// Logical And   ->        &&
+// Logical or   ->        ||
+// Logical not   ->        !
+
+let a3 = 6;
+let b3 = 5;
+let cond1 = a3 < b3; //false
+let cond2 = a3 === 6; //true
+console.log('cond1 && cond2', cond1 && cond2);
+// if both condition are true , then the value is true or else false
+console.log('cond1 && cond2', cond1 || cond2);
+// if any condition is true , then the calue is true or if both false then the condition is false
+console.log('!(a<b) ', !(a < b));
+// changes true to false and vice versa
+
+
+
