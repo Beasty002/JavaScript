@@ -15,6 +15,6 @@ for (let i in arr2) {
     arr2[i] = arr2[i] - 0.1 * arr2[i];
 }
 for (let i of arr2) {
-    console.log(`The new price is ${arr2}`)
+    console.log(`The new price is ${i}`)
 }
 
