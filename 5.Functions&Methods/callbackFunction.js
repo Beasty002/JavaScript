@@ -10,6 +10,27 @@ arr.forEach(function printVal(Val) { // Val is the value at each index
     console.log(Val);
 });
 
-arr.forEach((val) => {
-    console.log(val.toUpperCase());
+let arr1 = ['ironman', 'batman', 'superman']
+arr1.forEach((val, idx, array) => {
+    console.log(val.toUpperCase(), idx, array);
 });
+
+// Higher order function is the function which use other function as parameter or uses as return and for each loop is a square method
+
+
+
+// print the square of numbers in an array using loop
+
+let nums = [1, 2, 3, 4];
+nums.forEach(function printSquare(val) {
+    console.log(`The square of ${val} is ${val * val}`);
+});
+
+let calcSquare = (num) => {
+    console.log(num * num);
+}
+
+// Another way to do it
+nums.forEach(calcSquare)
+
+
