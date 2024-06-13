@@ -12,3 +12,25 @@ console.log(typeof heroes);
 // array is like a object where instead of key we use index
 heroes[1] = "superman";
 console.log(`the hero Hulk at index 1 is changed to ${heroes[1]}`)
+
+// ------------------------------------------looping in a an array
+//for loop
+for (let idx = 0; idx < heroes.length; idx++) {
+    console.log(`The heroe at index ${idx} is ${heroes[idx]} `);
+}
+
+// for of loop
+// this sends the copy of the data stored in the array
+for (let hero of heroes) {
+    console.log(`The hero is ${hero} `);
+}
+for (let hero of heroes) {
+    console.log(`The hero is ${hero.toUpperCase()} `);
+}
+
+
+//for in loop
+// this sends the index in the array
+for (let hero in heroes) {
+    console.log(`The hero is ${heroes[hero]}`)
+}
