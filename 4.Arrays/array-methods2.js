@@ -31,6 +31,25 @@ num.splice(2, 1, 400);
 // replaced the element at index 2 with 400
 console.log(num);
 num.splice(2);
+// startin from index 2 it deleted all the later elements
 console.log(num);
 
 
+
+
+
+// create an array to store companies "bloomberg" , "microsoft" , "uber" , "google" , "IBM" , "netflix"
+
+let company = ["bloomberg", "microsoft", "uber", "google", "IBM", "netflix"];
+// remove the first company
+company.shift();
+console.log(company)
+
+// remove uber and add ola
+company.splice(1, 1, "Ola")
+console.log(company)
+
+
+// add amazon at the end
+company.push("Amazon");
+console.log(company)
