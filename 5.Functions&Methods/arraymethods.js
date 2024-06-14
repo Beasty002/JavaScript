@@ -59,5 +59,5 @@ console.log(`Your sum is ${sumA}`);
 let prodA = arrN.reduce((prev, cur) => {
     return prev * cur;
 });
-console.log(`Your sum is ${prodA}`);
+console.log(`Your factorial/product is ${prodA}`);
 
