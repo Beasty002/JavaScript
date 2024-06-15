@@ -8,7 +8,6 @@ body.prepend(newBtn);
 
 
 let para = document.getElementsByClassName("para");
-
 body.append(para);
 
 para[0].classList.add("new-class");
