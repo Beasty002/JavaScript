@@ -25,3 +25,8 @@ let var3 = document.getElementsByTagName("button");
 for (let i = 0; i < var3.length; i++) {
     var3[i].style.background = "red";
 }
+
+
+
+
+
