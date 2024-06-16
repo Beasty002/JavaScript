@@ -15,7 +15,7 @@ class ToyotaCar {
         console.log("stop")
     }
     setBrand(model) {
-        this.modelName = model; // we can have both the name same modeName and model
+        this.modelName = model; // we can have both the name same modeName and model too
         console.log(`Your model is ${this.modelName}`)
     }
 }
