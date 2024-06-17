@@ -7,7 +7,6 @@ function getData(dataId, getNextData) {
         if (getNextData) {
             getNextData();
         }
-
     }, 2000);
 }
 
