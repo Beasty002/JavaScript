@@ -11,6 +11,7 @@ function isEven(element) {
 
 const ages = [16, 17, 18, 18, 19, 20, 60];
 const adult = ages.filter(isAdult); //the filter method expects the callback to return true or false 
+
 // The filter method iterates over each element in the ages array.
 // For each element, it calls the isAdult function and passes the current element as an argument.
 // If isAdult returns true, the current element is included in the new array.
