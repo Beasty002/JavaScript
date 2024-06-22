@@ -1,7 +1,7 @@
 const notesContainer = document.querySelector(".notes-container");
 const addBtn = document.querySelector("button");
+window.onload = showNotes();
 function showNotes() {
-    let notes = document.querySelectorAll(".input-box");
     let notesList = localStorage.getItem("notesList");
     if (notesList == null) {
         notesList = [];
@@ -9,6 +9,11 @@ function showNotes() {
     else {
         notesList = JSON.parse(notesList);
     }
+    notesList.forEach((element, index) => {
+        if (element.para === "" || element.para === undefined) {
+            removeStorage(index);
+        }
+    })
     let containerData = "";
     notesList.forEach(element => {
         containerData += `<p class="input-box" contenteditable="true"> ${element.para}<img src="./images/delete.png" alt="Delete"></p>`;
@@ -16,6 +21,7 @@ function showNotes() {
     notesContainer.innerHTML = containerData;
     updateText();
 }
+
 
 addBtn.addEventListener("click", () => {
     let inputBox = document.createElement("p");
@@ -26,17 +32,23 @@ addBtn.addEventListener("click", () => {
     inputBox.classList.add("input-box")
     inputBox.appendChild(img);
     notesContainer.appendChild(inputBox);
+    inputBox.addEventListener("keyup", () => {
+        updateStorage(Array.from(notesContainer.children).indexOf(inputBox), inputBox.textContent);
+    })
+
 })
 
 notesContainer.addEventListener("click", (e) => {
     if (e.target.tagName === "IMG") {
-        e.target.parentElement.remove();
+        const parent = e.target.parentElement;
+        const index = Array.from(notesContainer.children).indexOf(parent);
+        parent.remove();
+        removeStorage(index);
     }
 });
 
 
 function updateText() {
-    console.log("i am called")
     let notes = document.querySelectorAll(".input-box");
     notes.forEach((element, index) => {
         element.addEventListener("keyup", () => {
@@ -45,7 +57,42 @@ function updateText() {
         })
     })
 }
-function updateStorage(index, content) { }
+function updateStorage(index, content) {
+    let notesList = localStorage.getItem("notesList");
+    if (notesList == null) {
+        notesList = [];
+    }
+    else {
+        notesList = JSON.parse(notesList);
+    }
+    if (content != "") {
+        if (notesList[index]) {
+            notesList[index].para = content;
+        }
+        else {
+            notesList.push({ para: content });
+        }
+    }
+    localStorage.setItem("notesList", JSON.stringify(notesList));
+}
+
+function removeStorage(index) {
+    let notesList = localStorage.getItem("notesList");
+    if (notesList != null) {
+        notesList = JSON.parse(notesList);
+        let recycleBin = localStorage.getItem("recycleBin");
+        if (recycleBin == null) {
+            recycleBin = [];
+        }
+        else {
+            recycleBin = JSON.parse(recycleBin);
+        }
+        recycleBin.push(notesList[index]);
+        localStorage.setItem("recycleBin", JSON.stringify(recycleBin))
+        notesList.splice(index, 1);
+        localStorage.setItem("notesList", JSON.stringify(notesList));
+    }
+}
 
 
 
@@ -53,80 +100,5 @@ function updateStorage(index, content) { }
 
 
 
-// const notesContainer = document.querySelector(".notes-container");
-// const addBtn = document.querySelector("button");
-// showNotes();
 
-// function showNotes() {
-//     let notesList = localStorage.getItem("notesList");
-//     if (notesList === null) {
-//         notesList = [];
-//     } else {
-//         notesList = JSON.parse(notesList);
-//     }
-//     let containerData = "";
-//     notesList.forEach((element, index) => {
-//         containerData += `<p class="input-box" contenteditable="true"> ${element.para}<img src="./images/delete.png" alt="Delete"></p>`;
-//     });
-//     notesContainer.innerHTML = containerData;
-//     addKeyUpListeners();
-// }
 
-// function addKeyUpListeners() {
-//     const notes = document.querySelectorAll(".input-box");
-//     notes.forEach((note, index) => {
-//         note.addEventListener("keyup", () => {
-//             updateNoteInLocalStorage(index, note.textContent);
-//         });
-//     });
-// }
-
-// function updateNoteInLocalStorage(index, content) {
-//     let notesList = localStorage.getItem("notesList");
-//     if (notesList === null) {
-//         notesList = [];
-//     } else {
-//         notesList = JSON.parse(notesList);
-//     }
-
-//     if (notesList[index]) {
-//         notesList[index].para = content;
-//     } else {
-//         notesList.push({ para: content });
-//     }
-//     localStorage.setItem("notesList", JSON.stringify(notesList));
-// }
-
-// addBtn.addEventListener("click", () => {
-//     let inputBox = document.createElement("p");
-//     let img = document.createElement("img");
-//     img.src = "./images/delete.png";
-//     img.alt = "Delete";
-//     inputBox.setAttribute("contenteditable", "true");
-//     inputBox.classList.add("input-box");
-//     inputBox.appendChild(img);
-//     notesContainer.appendChild(inputBox);
-
-//     // Add keyup event listener to the new paragraph
-//     inputBox.addEventListener("keyup", () => {
-//         updateNoteInLocalStorage(Array.from(notesContainer.children).indexOf(inputBox), inputBox.textContent);
-//     });
-// });
-
-// notesContainer.addEventListener("click", (e) => {
-//     if (e.target.tagName === "IMG") {
-//         const parent = e.target.parentElement;
-//         const index = Array.from(notesContainer.children).indexOf(parent);
-//         parent.remove();
-//         removeFromLocalStorage(index);
-//     }
-// });
-
-// function removeFromLocalStorage(index) {
-//     let notesList = localStorage.getItem("notesList");
-//     if (notesList !== null) {
-//         notesList = JSON.parse(notesList);
-//         notesList.splice(index, 1);  // Use splice to remove the item
-//         localStorage.setItem("notesList", JSON.stringify(notesList));
-//     }
-// }
