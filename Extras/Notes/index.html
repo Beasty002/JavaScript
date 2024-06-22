@@ -6,6 +6,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <title>Document</title>
+    <style>
+        .del-items {
+            display: block;
+            color: black;
+            width: 100%;
+            text-overflow: ellipsis;
+            overflow: hidden;
+        }
+
+        .recover-btn {
+            width: fit-content;
+            align-self: flex-end;
+        }
+
+        .del-box {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .active-box {
+            overflow-wrap: break-word;
+        }
+    </style>
 </head>
 
 <body>
@@ -20,9 +43,18 @@
 
 
         <section>
-            <h1>Recycle bin</h1>
             <div id="delContainer">
-                <p class="del-items">loremdfjkdjfdjfkjdk</p>
+                <h1>Recycle bin</h1>
+                <div class="recycle-container">
+
+                    <div class="del-box">
+                        <p class="del-items active-box">
+                            loremdfjkdjfdjfkjdkloremdfjkdjfdjfkjdkloremdfjkdjfdjfkjdkloremdfjkdjfdjfkjdkloremdfjkdjfdjfkjdkloremdfjkdjfdjfkjdkloremdfjkdjfdjfkjdkloremdfjkdjfdjfkjdkloremdfjkdjfdjfkjdkloremdfjkdjfdjfkjdkloremdfjkdjfdjfkjdkloremdfjkdjfdjfkjdkloremdfjkdjfdjfkjdkloremdfjkdjfdjfkjdk
+                        </p>
+                        <button class="recover-btn">Recover</button>
+                    </div>
+
+                </div>
 
             </div>
         </section>

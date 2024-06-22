@@ -11,7 +11,7 @@ function showNotes() {
     }
     notesList.forEach((element, index) => {
         if (element.para === "" || element.para === undefined) {
-            removeStorage(index);
+            notesList.splice(index, 1);
         }
     })
     let containerData = "";
@@ -38,6 +38,7 @@ addBtn.addEventListener("click", () => {
 
 })
 
+
 notesContainer.addEventListener("click", (e) => {
     if (e.target.tagName === "IMG") {
         const parent = e.target.parentElement;
@@ -53,10 +54,10 @@ function updateText() {
     notes.forEach((element, index) => {
         element.addEventListener("keyup", () => {
             updateStorage(index, element.value)
-            console.log(element.textContent)
         })
     })
 }
+
 function updateStorage(index, content) {
     let notesList = localStorage.getItem("notesList");
     if (notesList == null) {
@@ -87,18 +88,15 @@ function removeStorage(index) {
         else {
             recycleBin = JSON.parse(recycleBin);
         }
-        recycleBin.push(notesList[index]);
+        if (notesList[index].para != "") {
+            recycleBin.push(notesList[index]);
+
+        }
         localStorage.setItem("recycleBin", JSON.stringify(recycleBin))
         notesList.splice(index, 1);
         localStorage.setItem("notesList", JSON.stringify(notesList));
     }
 }
-
-
-
-
-
-
 
 
 
